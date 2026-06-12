@@ -163,7 +163,7 @@ export default function Workout() {
         )}
         <label>Sets entry</label>
         <div className="entry-container">
-          <input value={entry} onChange={(e) => setEntry(e.currentTarget.value)} type="text" placeholder="eg: 3 x 5 x 125 lbs" />
+          <input value={entry} onChange={(e) => setEntry(e.currentTarget.value)} type="text" placeholder="eg: 3 x 5 x 125 lbs or 5 x 125 lbs" />
           <button onClick={() => submitLog()}>Log</button>
         </div>
       </WorkoutForm>
