@@ -4,12 +4,12 @@ import { NavLink } from "react-router"
 const NavWrapper = styled.nav`
     display: flex;
     flex-direction: row;
-    padding: 24px 0 12px;
+    padding: 24px 8px 12px;
     justify-content: space-between;
     column-gap: 12px;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: calc(100% - 16px);
     max-width: 600px;
     margin: 0 auto;
     background: white;
