@@ -109,11 +109,15 @@ export default function Workout() {
 
   const submitLog = async () => {
     const inputs = entry.split('x')
-    const sets = parseInt(inputs[0])
-    const repetitions = parseInt(inputs[1])
-    const weight = parseInt(inputs[2].trim().split(' ')[0])
-    const measurement = (inputs[2].trim().split(' ')[1].includes('lbs') ? 'lbs' : 'kg')
-    console.log(inputs[2].split(' '))
+    console.log(inputs)
+    if (inputs.length === 3) {
+
+    }   
+  
+    const sets = parseInt(inputs.length === 3 ? inputs[0] : '1')
+    const repetitions = parseInt(inputs.length === 3 ? inputs[1] : inputs[0])
+    const weight = parseInt(inputs.length === 3 ? inputs[2].trim().split(' ')[0] : inputs[1].trim().split(' ')[0])
+    const measurement = (inputs.length === 3 ? inputs[2].trim().split(' ')[1].includes('lbs') ? 'lbs' : 'kg' : inputs[1].trim().split(' ')[1].includes('lbs') ? 'lbs' : 'kg')
 
     Array.from({ length: sets }).forEach(async () => {
       try {
@@ -125,7 +129,6 @@ export default function Workout() {
           date
         })
 
-        setExercise('')
         setEntry('')
 
         setStatus(`Set(s) successfully added. Assigned id ${id}`)
@@ -145,6 +148,7 @@ export default function Workout() {
         <input type="search" 
           placeholder="type to search" 
           value={exercise} 
+          onClick={() => setExercise('')}
           onChange={(e) => setExercise(e.currentTarget.value)} />
         {results.length > 0 && (
           <AutofillList>
